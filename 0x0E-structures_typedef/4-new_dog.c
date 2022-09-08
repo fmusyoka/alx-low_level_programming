@@ -1,52 +1,83 @@
 #include "dog.h"
 #include <stdlib.h>
+
+int _strlen(char *str);
+char *_strcopy(char *dest, char *src);
+dog_t *new_dog(char *name, float age, char *owner);
+
 /**
- * new_dog - makes a dog
+ * _strlen - Finds the length of a string.
+ * @str: The string to be measured.
  *
- * @name: dog's name
- * @age: dog's age
- * @owner: dog's owner
+ * Return: The length of the string.
+ */
+int _strlen(char *str)
+{
+	int len = 0;
+
+	while (*str++)
+		len++;
+
+	return (len);
+}
+
+/**
+ * _strcopy - Copies a string pointed to by src, including the
+ *            terminating null byte, to a buffer pointed to by dest.
+ * @dest: The buffer storing the string copy.
+ * @src: The source string.
  *
- * Return: pointer to dog
+ * Return: The pointer to dest.
+ */
+char *_strcopy(char *dest, char *src)
+{
+	int index = 0;
+
+	for (index = 0; src[index]; index++)
+		dest[index] = src[index];
+
+	dest[index] = '\0';
+
+	return (dest);
+}
+
+/**
+ * new_dog - Creates a new dog.
+ * @name: The name of the dog.
+ * @age: The age of the dog.
+ * @owner: The owner of the dog.
+ *
+ * Return: The new struct dog.
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t *d;
-	int len;
-	char *ptr;
+	dog_t *doggo;
 
-	if (name == 0 || owner == 0)
-		return (NULL);
-	d = malloc(sizeof(dog_t));
-	if (d == NULL)
+	if (name == NULL || age < 0 || owner == NULL)
 		return (NULL);
 
-	for (len = 1, ptr = name; *ptr; len++)
-		ptr++;
-	d->name = malloc(len);
-	if (d->name == 0)
+	doggo = malloc(sizeof(dog_t));
+	if (doggo == NULL)
+		return (NULL);
+
+	doggo->name = malloc(sizeof(char) * (_strlen(name) + 1));
+	if (doggo->name == NULL)
 	{
-		free(d);
+		free(doggo);
 		return (NULL);
 	}
 
-	for (len = 1, ptr = owner; *ptr; len++)
-		ptr++;
-	d->owner = malloc(len);
-	if (d->owner == 0)
+	doggo->owner = malloc(sizeof(char) * (_strlen(owner) + 1));
+	if (doggo->owner == NULL)
 	{
-		free(d->name);
-		free(d);
+		free(doggo->name);
+		free(doggo);
 		return (NULL);
 	}
 
-	for (len = 0; *name != 0; len++, name++)
-		d->name[len] = *name;
-	d->name[len] = 0;
-	for (len = 0; *owner != 0; len++)
-		d->owner[len] = *owner++;
-	d->owner[len] = 0;
-	d->age = age;
+	doggo->name = _strcopy(doggo->name, name);
+	doggo->age = age;
+	doggo->owner = _strcopy(doggo->owner, owner);
 
-	return (d);
+	return (doggo);
 }

@@ -1,15 +1,14 @@
-#include <unistd.h>
 #include "main.h"
+
 /**
- * _abs- This function returns absolute value of a number
- * @r: An inpu int
- * Description: No using inbult functions
- * Return: absolute value of r
- */
-int _abs(int r)
+* _abs -> return absolute value of a number
+* @n: parameter
+* Return: absolute value of a number
+*/
+int _abs(int n)
 {
-	if (r >= 0)
-		return (r);
-	else
-		return (r * -1);
+	if (n < 0)
+		n = -n;
+	return (n);
 }
+

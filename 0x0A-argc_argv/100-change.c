@@ -1,37 +1,37 @@
 #include <stdio.h>
 #include <stdlib.h>
+
 /**
-* main - prints the number of arguments passed into it.
-* @argc: - # of parameters
-* @argv: - array of parameters
-* Return: no errros 0. error 1
+* main -> this is a function to print its name
+* @argc: argc parameter
+* @argv: an array of a command listed
+* Return: 0 for success
 */
 int main(int argc, char *argv[])
 {
-	int change = 0, n;
+	int num, j, result = 0;
+	int coins[] = {25, 10, 5, 2, 1};
 
 	if (argc != 2)
 	{
-	printf("Error\n");
-	return (1);
+		printf("%s\n", "Error");
+		return (1);
 	}
-	n = atoi(argv[1]);
-	if (n < 0)
-	{ printf("0\n");
-	return (0); }
-	if (n >= 25)
-	{ change = n / 25;
-	n = n % 25; }
-	if (n >= 10)
-	{ change += n / 10;
-	n = n % 10; }
-	if (n >= 5)
-	{ change += n / 5;
-	n = n % 5; }
-	if (n >= 2)
-	{ change += n / 2;
-	n = n % 2; }
-	change += n;
-	printf("%d\n", change);
-return (0);
+
+	num = atoi(argv[1]);
+	if (num < 0)
+	{
+		printf("0\n");
+		return (0);
+	}
+	for (j = 0; j < 5 && num >= 0; j++)
+	{
+		while (num >= coins[j])
+		{
+			num -= coins[j];
+			result++;
+		}
+	}
+	printf("%d\n", result);
+	return (0);
 }

@@ -2,23 +2,24 @@
 #include <stdlib.h>
 
 /**
-* main - prints the number of arguments passed into it.
-* @argc: - # of parameters
-* @argv: - array of parameters
-* Return: Always 0.
+* main -> this is a function to print its name
+* @argc: argc parameter
+* @argv: an array of a command listed
+* Return: 0 for success
 */
 int main(int argc, char *argv[])
 {
-	int mult, n1, n2;
+	int result, num1, num2;
 
 	if (argc != 3)
 	{
-		printf("Error\n");
-	return (1);
+		printf("%s\n", "Error");
+		return (1);
 	}
-	n1 = atoi(argv[1]);
-	n2 = atoi(argv[2]);
-	mult = n1 * n2;
-	printf("%d\n", mult);
-return (0);
+	num1 = atoi(argv[1]);
+	num2 = atoi(argv[2]);
+	result = num1 * num2;
+
+	printf("%d\n", result);
+	return (0);
 }

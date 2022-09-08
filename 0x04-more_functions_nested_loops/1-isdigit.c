@@ -1,23 +1,11 @@
 #include "main.h"
 
 /**
- *_isdigit - A function that checks for a digit (0 through 9).
- * @c: An input character
- * Return: 1 if c is uppercase or 0 otherwise
- */
+* _isdigit - funtion to check for a digit
+* @c: an integer argument
+* Return: success
+*/
 int _isdigit(int c)
 {
-	char i = '0';
-	int isdigit = 0;
-
-	for (; i <= '9'; i++)
-	{
-		if (i == c)
-		{
-			isdigit = 1;
-			break;
-		}
-	}
-
-	return (isdigit);
+	return (c >= '0' && c <= '9');
 }

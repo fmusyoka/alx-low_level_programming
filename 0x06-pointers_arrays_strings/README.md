@@ -1,1 +1,1 @@
-0x06. C - More pointers, arrays and strings tasks
+this is a 2nd pointer, array and strings assignment 

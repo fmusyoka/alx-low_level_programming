@@ -1,13 +1,14 @@
-#include <unistd.h>
 #include "main.h"
+
 /**
- * add- unction that adds two integers and returns the result
- * @a: An integer a
- * @b: An integer b
- * Description: No using inbult functions
- * Return: Result to add a and b
- */
-int add(int a, int b)
+* add -> adds two number
+* @x : param1
+* @y : param2
+* Return: x + y
+*/
+
+int add(int x, int y)
 {
-	return (a + b);
+	return (x + y);
 }
+

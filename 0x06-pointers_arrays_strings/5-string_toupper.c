@@ -1,18 +1,19 @@
 #include "main.h"
 
 /**
- * string_toupper - a function that changes all lower of a string to upper
- * @n: input string
- * Return: capitialized string
- */
-char *string_toupper(char *n)
+* string_toupper -> converting any string to upper case
+* @x: string param
+* Return: string
+*/
+char *string_toupper(char *x)
 {
-	int i;
+	int i = 0;
 
-	for (i = 0; n[i] != '\0'; i++)
+	while (x[i])
 	{
-		if (n[i] >= 'a' && n[i] <= 'z')
-			n[i] = n[i] - 32;
+		if (x[i] >= 97 && x[i] <= 122)
+			x[i] = x[i] - 32;
+		i++;
 	}
-	return (n);
+	return (x);
 }

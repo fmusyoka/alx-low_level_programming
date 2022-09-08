@@ -1,28 +1,27 @@
 #include "main.h"
 
 /**
- * leet - Entry point
- * ONE if, TWO loops only
- * @n: input
- * Return: Always 0 (Success)
- */
-char *leet(char *n)
+* leet -> a leet function
+* @x: param x
+* Return: a string
+*/
+char *leet(char *x)
 {
-	int i, x;
-	int find[] = {'a', 'A', 'e', 'E', 'o', 'O', 't', 'T', 'l', 'L'};
-	int replacer[] = {'4', '3', '0', '7', '1'};
+	int a = 0, b, l = 5;
+	char tr[5] = {'A', 'E', 'O', 'T', 'L'};
+	char trw[5] = {'4', '3', '0', '7', '1'};
 
-	for (i = 0; n[i] != '\0'; i++)
+	while (x[a])
 	{
-		for (x = 0; x <= 9; x++)
-		{
-			if (n[i] == find[x])
-			{
-				n[i] = replacer[x / 2];
-				x = 9;
-			}
-		}
-	}
+		b = 0;
 
-	return (n);
+		while (b < l)
+		{
+			if (x[a] == tr[b] || x[a] - 32 == tr[b])
+				x[a] = trw[b];
+			b++;
+		}
+		a++;
+	}
+	return (x);
 }

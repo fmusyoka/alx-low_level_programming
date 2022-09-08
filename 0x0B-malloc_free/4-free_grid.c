@@ -1,23 +1,16 @@
 #include "main.h"
-#include <stdio.h>
-#include <stdlib.h>
-/**
-* free_grid - free memory
-* @height: interator
-* @grid: input double pointer
-* Return: no return
-*/
 
+/**
+* free_grid -> removing memory allocation
+* @grid: grid to be freed
+* @height: height of matrix
+* Return: nothing
+*/
 void free_grid(int **grid, int height)
 {
-	int j;
+	int i;
 
-	if (grid != NULL && height > 0)
-	{
-	for (j = 0; j < height; j++)
-	{
-	free(grid[j]);
-	}
+	for (i = 0; i < height; i++)
+		free(grid[i]);
 	free(grid);
-	}
 }
