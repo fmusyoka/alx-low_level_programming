@@ -1,2 +1,1 @@
-# This is all about dynamic memory allocation
-
+**0x0B. C - malloc, free**

@@ -1,48 +1,23 @@
 #include <stdio.h>
-#include <unistd.h>
 #include <stdlib.h>
 #include <time.h>
+
 /**
- * checksum - executes checksum
- * @s: input char
- * Return: checksum
- */
-unsigned long checksum(char *s)
-{
-unsigned long sum = 0;
-while (*s != 0)
-{
-	sum += *s;
-	s++;
-}
-return (sum);
-}
-/**
- * main - prints password for crakme
- *
- * Return: Always 0.
+ * main - generates random passwords for 101-crackme
+ * Return: zero
  */
 int main(void)
 {
-	char alpha[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQSTUVWXYZ";
-	char s[33];
-	unsigned long sum;
-	int i, flag = 0;
+	int sum;
+	char c;
 
 	srand(time(NULL));
-	while (flag == 0)
+	while (sum <= 2645)
 	{
-		for (i = 0; i < 33; i++)
-		{
-			s[i] = alpha[rand() % (sizeof(alpha) - 1)];
-		}
-		s[i] = '\0';
-		sum = checksum(s);
-		if (sum == 2772)
-		{
-			flag = 1;
-			printf("%s", s);
-		}
+		c = rand() % 128;
+		sum += c;
+		putchar(c);
 	}
-return (0);
+	putchar(2772 - sum);
+	return (0);
 }

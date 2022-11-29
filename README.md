@@ -1,5 +1,6 @@
 # Low-Level Programming - Data Structures, Algorithms, Linux/Unix System Programming
 
+<<<<<<< HEAD
 This repository contains programs written for the low-level programming and
 algorithm track at the alx-SoftwareEngineering program facilitated by Holberton School. I am learning about data
 structures, algorithms, and other low-level programming concepts while
@@ -40,3 +41,6 @@ working in the C language. I update this repo with my learning progresses with h
 ## WARNING!!
 - This repo is done as a school assignment. Beware of copying my responses. I recommend you  to read resources and come up with your own solutions instead. Feel free to reach out for help!
 - This repo may contain some errors. If you notice any, please add a pull request.
+=======
+This repository contains programs written for the low-level programming ALX-Course 
+>>>>>>> 0e4fdbf65a911b29a77ef9a08c533249eb5942b1
