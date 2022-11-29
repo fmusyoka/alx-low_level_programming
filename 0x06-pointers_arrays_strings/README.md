@@ -1,1 +1,1 @@
-this is a 2nd pointer, array and strings assignment 
+**More Pointers, Arrays and Strings**

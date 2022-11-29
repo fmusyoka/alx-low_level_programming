@@ -1,13 +1,26 @@
 #include <stdio.h>
+#include "holberton.h"
 
 /**
-* main -> this is a function to print its name
-* @argc: argc parameter
-* @argv: an array of a command listed
-* Return: 0 for success
-*/
-int main(int argc, char *argv[] __attribute__((unused)))
+ * main - Prints the number of arguments passed into main
+ * @argc: Number of command line arguments
+ * @argv: Array name
+ * Return: 0
+ */
+
+int main(int argc, char *argv[])
 {
-	printf("%d\n", argc - 1);
+	int i;
+
+	if (argc == 1)
+		printf("%d\n", argc - 1);
+	else
+	{
+		for (i = 0; *argv; i++, argv++)
+			;
+
+		printf("%d\n", i - 1);
+	}
+
 	return (0);
 }

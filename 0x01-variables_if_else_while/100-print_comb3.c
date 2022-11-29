@@ -1,32 +1,31 @@
 #include <stdio.h>
-
+#include <unistd.h>
 /**
- *main -> assign a random number to the variable n each time it is executed
- *and print the last digit of the number stored in the variable n
- *Return: Always 0 (Success)
+ * main - Entyr point
+ * Description: prints two digits combination
+ * Return: Always 0 (success)
  */
 int main(void)
 {
-int ch;
-int n;
-for (ch = 48; ch <= 57; ch++)
-{
-for (n = 49; n <= 57; n++)
-{
-if (n > ch)
-{
-putchar(ch);
-putchar(n);
-if (ch != 56 || n != 57)
-{
-putchar(44);
-putchar(32);
-}
-}
-}
-}
+	int c, i;
 
-putchar(10); /* this is an ascii code for new line*/
+	for (c = '0'; c <= '9'; c++)
+	{
+		for (i = '0'; i <= '9'; i++)
+		{
+			if (c < i)
+			{
+				putchar(c);
+				putchar(i);
 
-return (0);
+				if (c != '8' || (c == '8' && i != '9'))
+				{
+					putchar(',');
+					putchar(' ');
+				}
+			}
+		}
+	}
+	putchar('\n');
+	return (0);
 }
